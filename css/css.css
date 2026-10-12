@@ -1,0 +1,164 @@
+/* 如果滚动条出现在页面层级 */
+html, body {
+    overflow: hidden;
+    height: 100%;
+    width: 100%;
+}
+body{
+    background: url(../img/background.png) no-repeat center center fixed;
+    background-size: cover;
+    min-height: 100vh;
+    position: relative;
+    transform-style: preserve-3d;
+}
+header{
+    height: 60px;
+    background: url(../img/header.png) no-repeat center center;
+    padding-top: 10px;
+    background-size: cover;
+    font-size: 16px;
+    color: white;
+    text-align: center;
+}
+.mainbox{
+    display: flex;
+    min-width: 1024px;
+    max-width: 1920px;
+    padding: 2px 2px 0;
+    box-sizing: border-box;
+}
+.mainbox .column{
+    flex: 3.3;
+}
+.mainbox .column:nth-child(2){
+    flex: 5;
+    margin: 0 2px 3px;
+}
+/* 两列图表样式 */
+.panel{
+    height: 28%;
+    padding: 0 3px 8px;
+    /* border: 1px solid rgba(5, 5, 5, 0.17); */
+    border-radius: 12px;
+    margin-bottom: 20px;
+    margin-top: 20px;
+    /* background:url(../img/000.png) no-repeat center center;
+    background-size: cover; */
+    /* overflow: hidden; */
+    border: 5px solid rgba(5, 5, 5, 0.17);
+    border-image-source: url(../img/图表background.png);
+    border-image-slice: 30;
+    border-image-width: 10px;
+    border-image-repeat: round;
+}
+.panel h2{
+    height: 30px;
+    color: white;
+    line-height: 30px;
+    text-align: center;
+    font-size: 16px;
+    font-weight: 400;
+    margin-bottom: 5px;
+}
+
+@keyframes rotate1{
+    0%{
+        transform: translate(-50%,-50%) rotate(0deg);
+    }
+    100%{
+        transform: translate(-50%,-50%) rotate(360deg);
+    }
+}
+@keyframes rotate2{
+    0%{
+        transform: translate(-50%,-50%) rotate(360deg);
+    }
+    100%{
+        transform: translate(-50%,-50%) rotate(0deg);
+    }
+}
+.ind{
+    height:180px ;
+    padding: 0 3px 8px;
+    /* border: 1px solid rgba(5, 5, 5, 0.17); */
+    /* border-radius: 12%; */
+    margin-left: 15px;
+    margin-right: 15px;
+    margin-bottom: 30px;
+    margin-top: 20px;
+    background:url(../img/城市.png) no-repeat center center;
+    /* background-size: cover; */
+}
+#provincepie {
+    height: 230px !important;
+    min-height: 230px;
+}
+#map {
+  width: 100%;
+  height: 420px; 
+  margin: 10px 0;
+  min-height: 400px;
+}
+.circle{
+    width: 70%;
+    height: 70%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    background: url(../img/圈.png);
+    animation: rotate3d 20s linear infinite;
+    opacity: 0.6;
+    background-size: 100% 100%;
+    overflow: visible;
+    transform-style: preserve-3d;
+    perspective: 1000px;
+    will-change: transform;
+    z-index: 99;
+}
+@keyframes rotate3d{
+    0% {
+        transform:translate(-50%, -50%) rotateX(0deg) rotateY(0deg);
+        opacity: 0.7;
+    }
+    50% {
+        transform:translate(-50%, -50%) rotateX(180deg) rotateY(180deg);
+        opacity: 0.5;
+    }
+    100% {
+        transform:translate(-50%, -50%) rotateX(360deg) rotateY(360deg);
+        opacity: 0.3;
+    }
+}
+.awl{
+    position: fixed;
+    width: 100px;
+    height: 100px;
+    perspective: 800px;
+    background: url(../img/定位.png) no-repeat center center;
+    border-radius: 20%;
+    background-size: cover;
+    background-color: transparent; 
+    transform: translate(-50%,-50%);
+    animation:float 2s ease-in-out infinite alternate;
+    /* 防止鼠标时间被阻挡 */
+    pointer-events: none;
+    z-index:9999;
+    display: none;
+    transition: transform 0.2s ease;
+}
+@keyframes float{
+    0%{
+        transform: rotateX(0deg) rotateY(0deg) translateY(0);
+    }
+    100%{
+        transform: rotateX(0deg) rotateY(0deg) translateY(-8px);
+    }
+}
+.purpose{
+    font-family: '楷体', 'KaiTi', 'STKaiti', serif;
+    font-weight: bold;
+    color: white;
+    text-align: center;
+    font-size: 20;
+}
